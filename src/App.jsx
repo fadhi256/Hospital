@@ -10,13 +10,13 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
 
       <TopBar />
       <Navbar />
 
       {/* Main content area */}
-      <main className="flex-grow"> {/* Note: The pt-16 might need adjustment */}
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
