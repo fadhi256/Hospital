@@ -2,6 +2,10 @@ import '../App.css'
 import { Hero } from '../components/Hero.jsx'
 import { AboutBrief } from '../components/AboutBrief.jsx'
 import { ServicesHighlight } from '../components/ServicesHighlight.jsx'
+import { WhyChooseUs } from '../components/WhyChooseUs.jsx'
+import { Specialties } from '../components/Specialties.jsx'
+import { WorkingHours } from '../components/WorkingHours.jsx'
+import { MeetOurDoctors } from '../components/MeetOurDoctors.jsx'
 
 function App() {
   return (
@@ -11,6 +15,10 @@ function App() {
         <Hero />
         <AboutBrief />
         <ServicesHighlight />
+        <Specialties />
+        <WhyChooseUs />
+        <WorkingHours />
+        <MeetOurDoctors />
       </div>
     </main>
   )

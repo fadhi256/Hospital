@@ -27,7 +27,7 @@ const Navbar = () => {
       initial="hidden"
       whileInView="show" 
       viewport={{ once: true }}
-      className="bg-emerald-300 z-40 border-b border-gray-200 shadow-lg"
+      className="bg-gray-900 z-40 border-b border-gray-200 shadow-lg"
     >
       
       {/* 🏥 UPPER SECTION: Logo and CTA */}
@@ -101,8 +101,8 @@ const Navbar = () => {
                 key={index}
                 to={link.href}
                 onClick={() => setActiveLink(link.href)}
-                className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
-                  after:bg-emerald-600 after:transition-all text-gray-700 hover:text-emerald-600 
+                className={`text-md font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
+                  after:bg-emerald-600 after:transition-all text-gray-200 hover:text-emerald-600 
                   ${activeLink === link.href ? 'active after:w-full' : ''}`}
               >
                 <motion.span
