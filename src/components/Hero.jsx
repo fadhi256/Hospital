@@ -94,7 +94,7 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* Dark Overlay for text readability */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
 
       {/* 6. ANIMATED TEXT CONTENT */}
       <div className="relative z-10 h-full flex items-center justify-center text-center">

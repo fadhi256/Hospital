@@ -1,10 +1,10 @@
 // src/utils/motion.js
 
-export const fadeIn = (direction = 'up', duration = 0.5, delay = 0) => {
+export const fadeIn = (direction = 'up', duration = 0.8, delay = 0) => { // 1. Default duration changed to 0.8s (was 0.5)
   return {
     hidden: {
-      x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
-      y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
+      x: direction === 'left' ? 150 : direction === 'right' ? -150 : 0, // 2. Distance changed to 150px (was 100)
+      y: direction === 'up' ? 150 : direction === 'down' ? -150 : 0, // 2. Distance changed to 150px (was 100)
       opacity: 0,
     },
     show: {
@@ -13,7 +13,7 @@ export const fadeIn = (direction = 'up', duration = 0.5, delay = 0) => {
       opacity: 1,
       transition: {
         type: 'spring',
-        duration: duration,
+        duration: duration, // Will now use our new 0.8s default
         delay: delay,
         ease: 'easeOut',
       },

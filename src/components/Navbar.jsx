@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from "framer-motion";
 import { Link, useLocation } from 'react-router-dom';
 import { fadeIn } from '../utils/motion'; 
 import logo from '../assets/FadhiHosipital.png'; 
 
+const SCROLL_THRESHOLD = 5; // Pixels to scroll before triggering hide/show
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  const [prevScroll, setPrevScroll] = useState(0);
+  const prevScroll = useRef(0); // 1. Use useRef instead of state
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
 
@@ -16,20 +18,29 @@ const Navbar = () => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
 
+  // 2. This useEffect now only runs ONCE on component mount
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
-      if (currentScroll > prevScroll && currentScroll > 100) {
-        setIsHidden(true);
-      } else if (currentScroll < prevScroll) {
-        setIsHidden(false);
+      const direction = currentScroll > prevScroll.current ? 'down' : 'up';
+
+      // Only trigger if scrolled more than the threshold
+      if (Math.abs(currentScroll - prevScroll.current) > SCROLL_THRESHOLD) {
+        if (direction === 'down' && currentScroll > 100) {
+          setIsHidden(true);
+        } else if (direction === 'up') {
+          setIsHidden(false);
+        }
       }
-      setPrevScroll(currentScroll);
+      
+      prevScroll.current = currentScroll; // 3. Update the ref (no re-render)
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // 4. Cleanup listener on unmount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScroll]);
+  }, []); // 5. Empty dependency array - THIS IS THE KEY!
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -44,11 +55,15 @@ const Navbar = () => {
       initial="hidden"
       whileInView="show" 
       viewport={{ once: true }}
-      className="bg-gray-900 z-40 border-b border-gray-200 shadow-lg sticky top-0"
+      // This is now the main navigation bar, sticky at the top
+      className="bg-gray-900 z-40 border-b border-gray-700 shadow-lg sticky top-0 w-full"
     >
       
       {/* 🏥 UPPER SECTION: Logo and CTA */}
-      <div className={`border-b border-gray-100 transition-all duration-300 overflow-hidden ${isHidden ? 'md:h-0' : 'h-24'}`}>
+      {/* This section will now animate its height */}
+      <div 
+        className={`border-b border-gray-700 transition-all duration-300 ease-in-out overflow-hidden ${isHidden ? 'md:h-0' : 'h-24'}`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
           
           {/* Logo (Left Side) */}
@@ -69,7 +84,7 @@ const Navbar = () => {
                   decoding="async" 
                 />
               ) : (
-                <Link to="/" className="text-3xl font-extrabold text-gray-900">
+                <Link to="/" className="text-3xl font-extrabold text-white">
                   Fadhi Hospital
                 </Link>
               )}
@@ -95,10 +110,11 @@ const Navbar = () => {
               className="md:hidden w-auto p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
+              {/* 6. Fixed icon color to be visible on dark background */}
               {isMenuOpen ? (
-                <HiX className="h-7 w-7 text-gray-700" />
+                <HiX className="h-7 w-7 text-gray-100" />
               ) : (
-                <HiMenu className="h-7 w-7 text-gray-700" />
+                <HiMenu className="h-7 w-7 text-gray-100" />
               )}
             </motion.button>
           </div>
@@ -118,12 +134,12 @@ const Navbar = () => {
                 key={index}
                 to={link.href}
                 onClick={() => setActiveLink(link.href)}
+                // Kept your new styles: text-md, text-gray-100
                 className={`text-md font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
                   after:bg-emerald-600 after:transition-all text-gray-100 hover:text-emerald-600 
                   ${activeLink === link.href ? 'active after:w-full' : ''}`}
               >
                 <motion.span
-                  // Staggered animation for each link
                   variants={fadeIn('down', 0.2 * (index + 1))}
                 >
                   {link.label}
@@ -140,7 +156,8 @@ const Navbar = () => {
           variants={fadeIn('down', 0.2)}
           initial="hidden"
           animate="show"
-          className="md:hidden bg-white border-t border-gray-100 py-4 absolute w-full shadow-lg"
+          // Switched to bg-gray-800 for better theme consistency
+          className="md:hidden bg-gray-800 border-t border-gray-700 py-4 absolute w-full shadow-lg"
         >
           <motion.div 
             className="container mx-auto px-4 space-y-4"
@@ -153,9 +170,10 @@ const Navbar = () => {
                   setActiveLink(link.href);
                   setIsMenuOpen(false);
                 }}
+                // Adjusted mobile link colors for dark theme
                 className={`block text-base font-medium py-2 px-4 rounded-lg 
-                  text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors
-                  ${activeLink === link.href ? 'active bg-emerald-50' : ''}`}
+                  text-gray-100 hover:bg-gray-700 hover:text-emerald-500 transition-colors
+                  ${activeLink === link.href ? 'active bg-gray-700 !text-emerald-500' : ''}`}
               >
                 <motion.span
                   variants={fadeIn('right', 0.2 * (index + 1))}
