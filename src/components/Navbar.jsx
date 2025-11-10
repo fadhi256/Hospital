@@ -7,6 +7,8 @@ import logo from '../assets/FadhiHosipital.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [prevScroll, setPrevScroll] = useState(0);
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
 
@@ -14,11 +16,26 @@ const Navbar = () => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > prevScroll && currentScroll > 100) {
+        setIsHidden(true);
+      } else if (currentScroll < prevScroll) {
+        setIsHidden(false);
+      }
+      setPrevScroll(currentScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScroll]);
+
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "Care At Fadhi Hospital" },
+    { href: "/contact", label: "Get In Touch" },
   ];
 
   return (
@@ -27,12 +44,12 @@ const Navbar = () => {
       initial="hidden"
       whileInView="show" 
       viewport={{ once: true }}
-      className="bg-gray-900 z-40 border-b border-gray-200 shadow-lg"
+      className="bg-gray-900 z-40 border-b border-gray-200 shadow-lg sticky top-0"
     >
       
       {/* 🏥 UPPER SECTION: Logo and CTA */}
-      <div className="border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-24 flex justify-between items-center">
+      <div className={`border-b border-gray-100 transition-all duration-300 overflow-hidden ${isHidden ? 'md:h-0' : 'h-24'}`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-full">
           
           {/* Logo (Left Side) */}
           <motion.div 
@@ -102,7 +119,7 @@ const Navbar = () => {
                 to={link.href}
                 onClick={() => setActiveLink(link.href)}
                 className={`text-md font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
-                  after:bg-emerald-600 after:transition-all text-gray-200 hover:text-emerald-600 
+                  after:bg-emerald-600 after:transition-all text-gray-100 hover:text-emerald-600 
                   ${activeLink === link.href ? 'active after:w-full' : ''}`}
               >
                 <motion.span
