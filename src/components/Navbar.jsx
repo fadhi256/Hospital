@@ -1,84 +1,101 @@
 // src/components/Navbar.jsx
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { motion } from "framer-motion";
-import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from "framer-motion";
+// 1. Import NavLink instead of Link
+import { NavLink, Link } from 'react-router-dom';
 import { fadeIn } from '../utils/motion'; 
 import logo from '../assets/FadhiHosipital.png'; 
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const [activeLink, setActiveLink] = useState(location.pathname);
-
-  useEffect(() => {
-    setActiveLink(location.pathname);
-  }, [location.pathname]);
-
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
-  ];
 
   return (
-    <motion.nav 
-      variants={fadeIn('down', 0.3)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-      // 1. "PERFECTED" COLOR: Changed bg-gray-200 to bg-white for a cleaner, more professional look
-      className="bg-white z-40 border-b border-gray-200 shadow-lg"
-    >
-      
-      {/* 🏥 UPPER SECTION: Logo and CTA */}
-      <div className="border-b border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-24 flex justify-between items-center">
-          
-          {/* Logo animation */}
-          <motion.div 
-            variants={fadeIn('right', 0.5)}
-            className="flex items-center cursor-pointer"
-          >
+    <>
+      <motion.nav 
+        variants={fadeIn('down', 0.3)}
+        initial="hidden"
+        animate="show"
+        viewport={{ once: true }}
+
+        className="bg-white z-40 border-b border-gray-200 shadow-md sticky top-0"
+      >
+        {/* 3. A SINGLE, UNIFIED HEADER ROW */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+
+          {/* Left: Logo */}
+          <Link to="/">
             <motion.div 
+              variants={fadeIn('right', 0.5)}
               whileHover={{ scale: 1.05 }}
-              className="flex items-center"
             >
               {logo ? (
                 <img 
                   src={logo} 
                   alt="Fadhi Hospital Logo"
-                  // 2. "PERFECTED" LOGO SIZE: Adjusted h-20 to h-16 for better balance
                   className="h-16 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
                 />
               ) : (
-                <Link to="/" className="text-3xl font-extrabold text-gray-900">
+                <span className="text-3xl font-extrabold text-gray-900">
                   Fadhi Hospital
-                </Link>
+                </span>
               )}
             </motion.div>
+          </Link>
+
+          {/* Center: Desktop Navigation Links */}
+          <motion.div 
+            variants={fadeIn('down', 0.5)}
+            className="hidden md:flex items-center gap-10"
+          >
+            {navLinks.map((link) => (
+              // 4. USING NAVLINK: It automatically gets an 'active' class
+              <NavLink
+                key={link.label}
+                to={link.href}
+                // 'active' class is in src/index.css
+                className={({ isActive }) =>
+                  `text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
+                  after:bg-emerald-600 after:transition-all text-gray-700 hover:text-emerald-600
+                  ${isActive ? 'active after:w-full' : ''}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </motion.div>
 
-          {/* CTA & Mobile Button animation */}
+          {/* Right: CTA & Mobile Menu Button */}
           <div className="flex items-center gap-4">
-            <Link to="/contact">
-              <motion.button 
-                variants={fadeIn('left', 0.5)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="hidden md:block bg-emerald-600 text-white px-8 py-3 rounded-full hover:bg-emerald-700 text-base font-semibold transition-all shadow-md hover:shadow-lg"
-              >
-                Book Appointment
-              </motion.button>
-            </Link>
+            {/* Desktop CTA */}
+            <motion.div variants={fadeIn('left', 0.5)} className="hidden md:block">
+              <Link to="/contact">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-emerald-600 text-white px-8 py-3 rounded-full hover:bg-emerald-700 text-base font-semibold transition-all shadow-md hover:shadow-lg"
+                >
+                  Book Appointment
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
             <motion.button 
               variants={fadeIn('left', 0.4)}
               className="md:hidden w-auto p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? (
                 <HiX className="h-7 w-7 text-gray-700" />
@@ -87,89 +104,50 @@ const Navbar = () => {
               )}
             </motion.button>
           </div>
-        </div>
-      </div>
-      
-      {/* 📑 LOWER SECTION: Navigation Links */}
-      <div className="hidden md:block">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-12 flex items-center justify-center">
-          
-          {/* Links animation */}
-          <motion.div 
-            variants={fadeIn('down', 0.5)}
-            className="flex items-center gap-10"
-          >
-            {navLinks.map((link, index) => (
-              <Link
-                key={index}
-                to={link.href}
-                onClick={() => setActiveLink(link.href)}
-                className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
-                  after:bg-emerald-600 after:transition-all text-gray-700 hover:text-emerald-600 
-                  ${activeLink === link.href ? 'active after:w-full' : ''}`}
-              >
-                <motion.span
-                  variants={fadeIn('down', 0.2 * (index + 1))}
-                >
-                  {link.label}
-                </motion.span>
-              </Link>
-            ))}
-          </motion.div>
-        </div>
-      </div>
 
-      {/* 📱 Mobile Menu (Dropdown) */}
-      {isMenuOpen && (
-        <motion.div 
-          variants={fadeIn('down', 0.2)}
-          initial="hidden"
-          animate="show"
-          // 3. "PERFECTED" MOBILE BG: Matched the main bg-white
-          className="md:hidden bg-white border-t border-gray-100 py-4 absolute w-full shadow-lg"
-        >
+        </div>
+      </motion.nav>
+
+      {/* 5. MOBILE MENU: This is now separate and animates cleanly */}
+      <AnimatePresence>
+        {isMenuOpen && (
           <motion.div 
-            className="container mx-auto px-4 space-y-4"
+            // Full-screen overlay
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="md:hidden bg-white shadow-lg fixed top-[128px] left-0 w-full z-30" // Sits just below both bars
           >
-            {navLinks.map((link, index) => (
-              <Link
-                key={index}
-                to={link.href}
-                onClick={() => {
-                  setActiveLink(link.href);
-                  setIsMenuOpen(false);
-                }}
-                // 4. *** CRITICAL FIX ***: Changed text-white to text-gray-700 to make links visible
-                className={`block text-base font-medium py-2 px-4 rounded-lg 
-                  text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors
-                  ${activeLink === link.href ? 'active bg-emerald-50' : ''}`}
-              >
-                <motion.span
-                  variants={fadeIn('right', 0.2 * (index + 1))}
-                  initial="hidden"
-                  animate="show"
+            <div className="container mx-auto px-4 py-6 space-y-4">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setIsMenuOpen(false)} // Close menu on click
+                  className={({ isActive }) =>
+                    `block text-base font-medium py-2 px-4 rounded-lg 
+                    text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors
+                    ${isActive ? 'active bg-emerald-50' : ''}`
+                  }
                 >
                   {link.label}
-                </motion.span>
+                </NavLink>
+              ))}
+              
+              <Link to="/contact" className="pt-2 block">
+                <motion.button 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 text-sm font-medium transition-all shadow-md"
+                >
+                  Book Appointment
+                </motion.button>
               </Link>
-            ))}
-            
-            <Link to="/contact" className="pt-2 block">
-              <motion.button 
-                variants={fadeIn('up', 0.4)}
-                initial="hidden"
-                animate="show"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 text-sm font-medium transition-all shadow-md"
-              >
-                Book Appointment
-              </motion.button>
-            </Link>
+            </div>
           </motion.div>
-        </motion.div>
-      )}
-    </motion.nav>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
