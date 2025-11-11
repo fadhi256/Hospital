@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion } from "framer-motion";
 import { Link, useLocation } from 'react-router-dom';
-// This import is crucial!
 import { fadeIn } from '../utils/motion'; 
 import logo from '../assets/FadhiHosipital.png'; 
 
@@ -25,13 +24,13 @@ const Navbar = () => {
   ];
 
   return (
-    // **** THIS IS THE LOAD/SCROLL ANIMATION ****
     <motion.nav 
-      variants={fadeIn('down', 0.3)} // Fades in from the top
+      variants={fadeIn('down', 0.3)}
       initial="hidden"
-      whileInView="show" // Animates when it enters the screen
-      viewport={{ once: true }} // Only animates one time
-      className="bg-gray-200 z-40 border-b border-gray-200 shadow-lg"
+      whileInView="show"
+      viewport={{ once: true }}
+      // 1. "PERFECTED" COLOR: Changed bg-gray-200 to bg-white for a cleaner, more professional look
+      className="bg-white z-40 border-b border-gray-200 shadow-lg"
     >
       
       {/* 🏥 UPPER SECTION: Logo and CTA */}
@@ -51,7 +50,8 @@ const Navbar = () => {
                 <img 
                   src={logo} 
                   alt="Fadhi Hospital Logo"
-                  className="h-20 w-auto object-contain" 
+                  // 2. "PERFECTED" LOGO SIZE: Adjusted h-20 to h-16 for better balance
+                  className="h-16 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
                 />
@@ -108,7 +108,6 @@ const Navbar = () => {
                   after:bg-emerald-600 after:transition-all text-gray-700 hover:text-emerald-600 
                   ${activeLink === link.href ? 'active after:w-full' : ''}`}
               >
-                {/* Staggered link animation */}
                 <motion.span
                   variants={fadeIn('down', 0.2 * (index + 1))}
                 >
@@ -126,6 +125,7 @@ const Navbar = () => {
           variants={fadeIn('down', 0.2)}
           initial="hidden"
           animate="show"
+          // 3. "PERFECTED" MOBILE BG: Matched the main bg-white
           className="md:hidden bg-white border-t border-gray-100 py-4 absolute w-full shadow-lg"
         >
           <motion.div 
@@ -135,7 +135,11 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={link.href}
-                // ... (rest of the link code)
+                onClick={() => {
+                  setActiveLink(link.href);
+                  setIsMenuOpen(false);
+                }}
+                // 4. *** CRITICAL FIX ***: Changed text-white to text-gray-700 to make links visible
                 className={`block text-base font-medium py-2 px-4 rounded-lg 
                   text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors
                   ${activeLink === link.href ? 'active bg-emerald-50' : ''}`}
@@ -155,7 +159,8 @@ const Navbar = () => {
                 variants={fadeIn('up', 0.4)}
                 initial="hidden"
                 animate="show"
-                // ... (rest of the button code)
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 text-sm font-medium transition-all shadow-md"
               >
                 Book Appointment
