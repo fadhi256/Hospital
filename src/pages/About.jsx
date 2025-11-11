@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+// src/pages/About.jsx
 
-const AboutUs = () => {
+import React from 'react';
+import PageHeader from '../components/PageHeader'; 
+import OurStoryMission from '../components/OurStoryMission';
+import CoreValues from '../components/CoreValues';
+import LeadershipTeam from '../components/LeadershipTeam';
+import FacilityGallery from '../components/FacilityGallery';
+import CTABanner from '../components/CTABanner';
+
+const headerImage = "https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=2070&auto=format&fit=crop";
+
+const About = () => {
   return (
-     <main className="relative min-h-screen overflow-x-hidden">
-          <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
-          <div className="overflow-hidden">
- 
+    <div className="bg-white">
+      {/* 1. Page Header */}
+      <PageHeader 
+        title="About Fadhi Hospital" 
+        image={headerImage} 
+      />
+      <OurStoryMission />
+      <CoreValues />
+      <LeadershipTeam />
+      <FacilityGallery />
+      <CTABanner />
 
+    </div>
+  );
+};
 
-          </div>
-        </main>
-  )
-}
-
-export default AboutUs;
+export default About;
