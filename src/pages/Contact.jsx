@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+// src/pages/Contact.jsx
+
+import React from 'react';
+import PageHeader from '../components/PageHeader';
+import ContactFormInfo from '../components/ContactFormInfo';
+import HospitalMap from '../components/HospitalMap';
+import AppointmentFAQ from '../components/AppointmentFAQ';
+import EmergencyNotice from '../components/EmergencyNotice';
+
+const headerImage = "https://images.unsplash.com/photo-1549414571-55c32c02931a?q=80&w=2070&auto=format&fit=crop"; 
 
 const Contact = () => {
   return (
-     <main className="relative min-h-screen overflow-x-hidden">
-          <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
-          <div className="overflow-hidden">
-
-
-          </div>
-        </main>
-  )
-}
+    <div className="bg-white">
+      
+      {/* 1. Page Header */}
+      <PageHeader 
+        title="Get in Touch with Fadhi Hospital" 
+        image={headerImage} 
+      />
+      <ContactFormInfo />
+      <HospitalMap />
+      <AppointmentFAQ />
+      <EmergencyNotice />
+      
+    </div>
+  );
+};
 
 export default Contact;

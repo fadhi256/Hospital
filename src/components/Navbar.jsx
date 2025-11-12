@@ -3,20 +3,27 @@
 import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from "framer-motion";
-// 1. Import NavLink instead of Link
 import { NavLink, Link } from 'react-router-dom';
 import { fadeIn } from '../utils/motion'; 
 import logo from '../assets/FadhiHosipital.png'; 
+import AppointmentModal from './AppointmentModal';
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services", label: "Care at Fadhi" },
+  { href: "/contact", label: "Reach Out" },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBookAppointmentClick = (e) => {
+    e.preventDefault(); // Prevent default link action
+    setIsModalOpen(true); // Open the modal
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
 
   return (
     <>
@@ -79,7 +86,11 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* Desktop CTA */}
             <motion.div variants={fadeIn('left', 0.5)} className="hidden md:block">
-              <Link to="/contact">
+              {/* 3. CHANGE LINK TO BUTTON AND ADD CLICK HANDLER */}
+              <button 
+                onClick={handleBookAppointmentClick}
+                // Removed Link component wrapper
+                >
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -87,7 +98,7 @@ const Navbar = () => {
                 >
                   Book Appointment
                 </motion.button>
-              </Link>
+              </button>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -135,18 +146,21 @@ const Navbar = () => {
                 </NavLink>
               ))}
               
-              <Link to="/contact" className="pt-2 block">
+              <button onClick={handleBookAppointmentClick} className="pt-2 block w-full">
                 <motion.button 
-                  onClick={() => setIsMenuOpen(false)}
                   className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 text-sm font-medium transition-all shadow-md"
                 >
                   Book Appointment
                 </motion.button>
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <AppointmentModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   );
 };
