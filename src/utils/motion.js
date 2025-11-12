@@ -87,3 +87,19 @@ export const scale = (delay) => {
     }
   };
 }; 
+
+export const characterAppear = {
+  hidden: {
+    opacity: 0,
+    x: -10, // Slight movement from the left
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: 'tween',
+      ease: 'easeOut',
+      duration: 0.04, // Very quick duration for each character
+    }
+  }
+};

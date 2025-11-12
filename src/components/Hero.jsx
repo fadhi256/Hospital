@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { assets } from '../assets/assets.js'
+import AnimatedText from './AnimatedText'
 
-// 1. DEFINE YOUR SLIDE DATA
-// Add your 4 slides here. Use high-quality, relevant images.
-// I'm using placeholder images from Unsplash.
+// 1. SLIDE DATA
 const slideData = [
   {
     id: 1,
@@ -42,19 +41,13 @@ const imageVariants = {
   exit: { opacity: 0, scale: 1.05, transition: { duration: 0.5, ease: 'easeIn' } }
 };
 
-const textVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.3, ease: 'easeOut' } }
-};
-
-
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
   // 3. AUTO-SLIDER LOGIC
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Go to the next slide
+
       setIndex((prevIndex) => (prevIndex + 1) % slideData.length);
     }, 7000); // Change slide every 7 seconds
 
@@ -97,29 +90,43 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/20"></div>
 
       {/* 6. ANIMATED TEXT CONTENT */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center">
-        {/* We use key={index} again to force re-animation */}
-        <motion.div
-          key={index} 
-          variants={textVariants}
-          initial="hidden"
-          animate="visible"
-          className="container mx-auto px-4 text-white"
-        >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-            {slideData[index].title}
-          </h1>
-          <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-8 font-light" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}>
-            {slideData[index].subtitle}
-          </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg"
-          >
-            Book an Appointment
-          </motion.button>
-        </motion.div>
+     <div className="relative z-10 h-full flex items-center justify-center text-center">
+        {/* We use key={index} on AnimatePresence to ensure the text content animates out/in */}
+        <AnimatePresence initial={false} mode="wait">
+            <motion.div
+                key={slideData[index].id} // Use ID as key for stability
+                // Fades the container in slightly while the text types
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+                exit={{ opacity: 0, y: -10, transition: { duration: 0.3 } }}
+                className="container mx-auto px-4 text-white"
+            >
+                {/* 1. TYPING HEADLINE */}
+                <AnimatedText 
+                    text={slideData[index].title} 
+                    className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight" 
+                    delay={0.5} // Delay start of typing after slide transition begins
+                />
+
+                {/* 2. TYPING SUBTITLE */}
+                <AnimatedText 
+                    text={slideData[index].subtitle} 
+                    className="text-lg md:text-2xl max-w-3xl mx-auto mb-8 font-light" 
+                    delay={1.5} // Start typing after headline is partially visible
+                />
+
+                {/* 3. CTA BUTTON (Simple fade-in) */}
+                <motion.button
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1, transition: { delay: 2.5, duration: 0.5 } }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg"
+                >
+                    Book an Appointment
+                </motion.button>
+            </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* 7. NAVIGATION ARROWS */}

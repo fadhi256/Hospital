@@ -86,10 +86,8 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* Desktop CTA */}
             <motion.div variants={fadeIn('left', 0.5)} className="hidden md:block">
-              {/* 3. CHANGE LINK TO BUTTON AND ADD CLICK HANDLER */}
               <button 
                 onClick={handleBookAppointmentClick}
-                // Removed Link component wrapper
                 >
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
@@ -128,7 +126,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="md:hidden bg-white shadow-lg fixed top-[128px] left-0 w-full z-30" // Sits just below both bars
+            className="md:hidden bg-white shadow-lg fixed top-[80px] left-0 w-full z-30" 
           >
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link) => (
