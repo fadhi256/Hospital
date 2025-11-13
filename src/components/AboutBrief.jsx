@@ -7,9 +7,9 @@ import { fadeIn, staggerContainer } from '../utils/motion'; // Ensure staggerCon
 import Counter from './Counter'; // Import our new Counter component
 
 const AboutBrief = () => {
-  // Hospital specific data
-  const hospitalName = "Fadhi Hospital"; // Using the name from your logo
-  const foundingYear = 2005; // Example: Set your hospital's founding year
+ 
+  const hospitalName = "Fadhi Hospital"; 
+  const foundingYear = 2005; 
   const currentYear = new Date().getFullYear();
   const yearsOfOperation = currentYear - foundingYear;
 
@@ -21,13 +21,13 @@ const AboutBrief = () => {
   ];
 
   return (
-    // We use the 'section-container' custom class from index.css for consistent padding
+
     <motion.section
-      variants={staggerContainer(0.3, 0.2)} // Stagger children animations
+      variants={staggerContainer(0.3, 0.2)}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      className="section-container bg-white" // Use a light background for contrast
+      viewport={{ once: false, amount: 0.25 }}
+      className="section-container bg-white contrast"
     >
       <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
         
@@ -69,10 +69,10 @@ const AboutBrief = () => {
             >
               <h3 className="text-4xl font-bold text-emerald-600 mb-2">
                 <Counter 
-                  from={0} 
+                from={0} 
                   to={stat.value} 
                   duration={2.5} 
-                  delay={0.8 + 0.2 * index} // Longer delay for visual effect
+                  delay={0.2} // Short delay after card appears
                   suffix={stat.suffix} 
                   prefix={stat.prefix} 
                 />

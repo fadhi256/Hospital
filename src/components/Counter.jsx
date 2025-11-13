@@ -1,22 +1,36 @@
-import React from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { useEffect } from 'react';
+// src/components/Counter.jsx
 
-const Counter = ({ from, to, duration = 2, delay = 0.5, suffix = "", prefix = "" }) => {
+import React, { useEffect, useRef } from 'react';
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
+
+const Counter = ({ from = 0, to, duration = 2, delay = 0, suffix = "", prefix = "" }) => {
   const count = useMotionValue(from);
-  const rounded = useTransform(count, Math.round); // This creates a new MotionValue
+  const rounded = useTransform(count, Math.round);
+  const ref = useRef(null);
+  
+  // 1. useInView hook
+  // once: false means it will re-trigger every time it enters view
+  // margin: "-50px" means it triggers when it's 50px into the viewport
+  const isInView = useInView(ref, { once: false, margin: "-100px 0px" }); 
 
   useEffect(() => {
-    const animation = animate(count, to, { duration, delay });
-    return animation.stop;
-  }, [from, to, duration, delay, count]);
+    if (isInView) {
+      // 2. Start animation only when in view
+      const controls = animate(count, to, { 
+        duration, 
+        delay, 
+        ease: "easeOut" 
+      });
+      return controls.stop;
+    } else {
+      // 3. Reset to 'from' value when it scrolls OUT of view
+      count.set(from);
+    }
+  }, [isInView, from, to, duration, delay, count]); // Re-run effect when isInView changes
 
-  // **THE FIX:**
-  // We wrap the 'rounded' MotionValue in its own <motion.span>
-  // This tells Framer Motion to read the value and render it.
-  // The outer <span> is just a normal wrapper.
   return (
-    <span>
+    // 4. Attach the ref to the <span>
+    <span ref={ref}> 
       {prefix}
       <motion.span>{rounded}</motion.span>
       {suffix}
