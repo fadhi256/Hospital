@@ -1,6 +1,7 @@
 import '../App.css'
 import { Hero } from '../components/Hero.jsx'
 import { AboutBrief } from '../components/AboutBrief.jsx'
+import FacilityVideo from '../components/FacilityVideo.jsx'
 import FounderMessage from '../components/FounderMessage';
 import { ServicesHighlight } from '../components/ServicesHighlight.jsx'
 import { WhyChooseUs } from '../components/WhyChooseUs.jsx'
@@ -15,6 +16,7 @@ function App() {
       <div className="overflow-hidden">
         <Hero />
          <AboutBrief />
+         <FacilityVideo />
         <FounderMessage />
         <ServicesHighlight />
         <Specialties />

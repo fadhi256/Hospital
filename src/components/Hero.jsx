@@ -67,7 +67,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden bg-gray-900">
+    <section className="relative h-[100vh] w-full overflow-hidden bg-gray-900">
       
       {/* 5. ANIMATED BACKGROUND IMAGE */}
       <AnimatePresence initial={false}>

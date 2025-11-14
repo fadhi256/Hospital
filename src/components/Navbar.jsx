@@ -72,11 +72,11 @@ const Navbar = () => {
                   className="h-16 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
-                  style={{ filter: isScrolled ? 'none' : 'brightness(0) invert(1)' }}
+                  style={{ filter: isScrolled ? 'none' : 'brightness(0)' }}
                 />
               ) : (
                 <span className={`text-3xl font-extrabold 
-                  ${isScrolled ? 'text-gray-900' : 'text-white'}`
+                  ${isScrolled ? 'text-Stone-900' : 'text-white'}`
                 }>
                   Fadhi Hospital
                 </span>
@@ -96,7 +96,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full 
                   after:bg-emerald-600 after:transition-all hover:text-emerald-600
-                  ${isScrolled ? 'text-gray-700' : 'text-white'} 
+                  ${isScrolled ? 'text-gray-900' : 'text-gray-900'} 
                   ${isActive ? 'active after:w-full' : ''}`
                 }
               >

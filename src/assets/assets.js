@@ -6,6 +6,7 @@ import Mothers from "./Mothers.jpg";
 import CriticalSupport from "./CricticalSupport.avif";
 import ExpertHealth from "./ExpertHealth.avif";
 import EmergencyCare from "./Emergency.jpg";
+import CardiologyHero from "./cardiology-hero.jpg";
 
 
 
@@ -18,5 +19,6 @@ export const assets = {
     Mothers,
     CriticalSupport,
     ExpertHealth,
-    EmergencyCare
+    EmergencyCare,
+    CardiologyHero
 };

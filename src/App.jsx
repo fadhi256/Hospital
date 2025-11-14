@@ -13,21 +13,21 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import ServicesDetail from './pages/ServicesDetail';
 
 function App() {
   return (
-    // 2. DO NOT wrap with <BrowserRouter> here
     <> 
       <ScrollToTop />
       <TopBar />
       <Navbar />
       
-      {/* 3. Adjust padding to match your sticky header height */}
       <MainLayout> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServicesDetail />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </MainLayout>
