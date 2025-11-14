@@ -127,9 +127,9 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <HiX className={`h-7 w-7 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                <HiX className={`h-7 w-7 ${isScrolled ? 'text-stone-900' : 'text-stone-900'}`} />
               ) : (
-                <HiMenu className={`h-7 w-7 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                <HiMenu className={`h-7 w-7 ${isScrolled ? 'text-stone-900' : 'text-stone-900'}`} />
               )}
             </motion.button>
           </div>
@@ -147,7 +147,7 @@ const Navbar = () => {
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             // 3. CALCULATE NEW TOP POSITION: TopBar (h-12) + Navbar (h-20) = total 32 units
             // We use 'top-32' (h-12 + h-20) to ensure the mobile menu starts below both sticky headers
-            className={`md:hidden bg-white shadow-lg fixed top-32 left-0 w-full z-30`} 
+            className={`md:hidden bg-white shadow-lg fixed top-20 left-0 w-full z-30`} 
           >
             <div className="container mx-auto px-4 py-3 space-y-4">
               {navLinks.map((link) => (
