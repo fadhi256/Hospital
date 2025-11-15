@@ -7,7 +7,7 @@ import { fadeIn, staggerContainer } from '../utils/motion';
 const FacilityVideo = () => {
   // 1. IMPORTANT: Replace this with your actual YouTube video ID or URL
   const videoId = "XXXXXXXXXXX"; // Example: "dQw4w9WgXcQ" for a sample video
-  const videoTitle = "A Tour of Fadhi Hospital's State-of-the-Art Facilities";
+  const videoTitle = "A Tour of Hudson Medical Center's State-of-the-Art Facilities";
 
   return (
     <motion.section

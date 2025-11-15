@@ -11,7 +11,7 @@ import AppointmentModal from './AppointmentModal';
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Care at Fadhi" },
+  { href: "/services", label: "Care at Hudson " },
   { href: "/contact", label: "Reach Out" },
 ];
 
@@ -68,7 +68,7 @@ const Navbar = () => {
               {logo ? (
                 <img 
                   src={logo} 
-                  alt="Fadhi Hospital Logo"
+                  alt="Hudson Medical Center Logo"
                   className="h-16 w-auto object-contain" 
                   loading="lazy" 
                   decoding="async" 
@@ -78,7 +78,7 @@ const Navbar = () => {
                 <span className={`text-3xl font-extrabold 
                   ${isScrolled ? 'text-Stone-900' : 'text-white'}`
                 }>
-                  Fadhi Hospital
+                  Hudson Medical Center
                 </span>
               )}
             </motion.div>

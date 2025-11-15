@@ -15,7 +15,7 @@ const About = () => {
     <div className="bg-white">
       {/* 1. Page Header */}
       <PageHeader 
-        title="About Fadhi Hospital" 
+        title="About Hudson Medical Center" 
         image={headerImage} 
       />
       <OurStoryMission />

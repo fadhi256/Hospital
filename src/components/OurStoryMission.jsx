@@ -24,7 +24,7 @@ const OurStoryMission = () => {
             Our Story
           </h2>
           <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-            Founded in 2005, Fadhi Hospital began as a small community clinic with a 
+            Founded in 2005, Hudson Medical Center began as a small community clinic with a 
             simple mission: to provide exceptional, compassionate care to every 
             neighbor who walked through our doors.
           </p>

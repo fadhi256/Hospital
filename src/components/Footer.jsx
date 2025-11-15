@@ -16,13 +16,13 @@ const Footer = () => {
             {logo ? (
               <img 
                 src={logo} 
-                alt="Fadhi Hospital Logo" 
+                alt="Hudson Medical Center" 
                 className="h-10 w-auto mb-4"
                 // If your logo is dark, you might need a light version for the footer
                 // Or add a style like: style={{ filter: 'brightness(0) invert(1)' }}
               />
             ) : (
-              <h2 className="text-2xl font-bold text-white mb-4">Fadhi Hospital</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Hudson Medical Center</h2>
             )}
             <p className="text-gray-400">
               Providing compassionate, patient-centered healthcare to our community for over 15 years.
@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <FaEnvelope className="w-5 h-5 text-emerald-500 mt-1 mr-3 flex-shrink-0" />
-                <a href="mailto:info@fadhihospital.org" className="hover:text-emerald-500 transition-colors">info@fadhihospital.org</a>
+                <a href="mailto:info@hudsonmedicalcenter.com" className="hover:text-emerald-500 transition-colors">info@hudsonmedicalcenter.com</a>
               </li>
             </ul>
           </div>
@@ -77,7 +77,7 @@ const Footer = () => {
       <div className="bg-gray-800 py-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Fadhi Hospital. All rights reserved.
+            &copy; {new Date().getFullYear()} Hudson Medical Center. All rights reserved.
           </p>
           <div className="flex justify-center gap-5 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-emerald-500 transition-colors"><FaTwitter size={20} /></a>

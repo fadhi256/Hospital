@@ -46,7 +46,7 @@ const WhyChooseUs = () => {
         className="text-center mb-12"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Why Choose <span className="text-emerald-600">Fadhi Hospital?</span>
+          Why Choose <span className="text-emerald-600">Hudson Medical Center?</span>
         </h2>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
           Your health is our mission. We are committed to providing exceptional, 

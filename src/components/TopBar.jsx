@@ -6,7 +6,7 @@ import { IoWarning } from 'react-icons/io5';
 const contactDetails = {
   phone: "+256(0) 700000000",
   whatsapp: "+256(0) 700000000",
-  email: "customercare@fadhihospital.org",
+  email: "customercare@hudsonmedicalcenter.org",
   emergency: "+256(0) 300099999",
 };
 

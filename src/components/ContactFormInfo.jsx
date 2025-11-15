@@ -16,14 +16,14 @@ const ContactFormInfo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Submitted:', formState);
-    alert('Thank you for contacting Fadhi Hospital! We will respond within 24 hours.');
+    alert('Thank you for contacting Hudson Medical Center! We will respond within 24 hours.');
     setFormState({ name: '', email: '', subject: '', message: '' }); // Reset form
   };
 
   const contactDetails = [
     { icon: FaLocationDot, title: 'Main Campus', info: '123 Health Ave, City, Country' },
     { icon: FaPhone, title: 'Appointments', info: '+254 700 123 456' },
-    { icon: FaEnvelope, title: 'General Inquiry', info: 'info@fadhihospital.com' },
+    { icon: FaEnvelope, title: 'General Inquiry', info: 'info@hudsonmedicalcenter.com' },
     { icon: FaClock, title: 'Hours', info: '24/7 Emergency, 9AM-5PM Clinic' },
   ];
 

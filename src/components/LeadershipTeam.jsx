@@ -13,7 +13,7 @@ const leaders = [
   {
     name: "Dr. Laila Fadhi",
     title: "Chief Executive Officer (CEO)",
-    bio: "Dr. Fadhi is the founder of Fadhi Hospital, leading strategic growth and ensuring the hospital's vision of compassionate excellence is realized.",
+    bio: "Dr. Fadhi is the founder of Hudson Medical Center, leading strategic growth and ensuring the hospital's vision of compassionate excellence is realized.",
     image: placeholderImage,
   },
   {
