@@ -12,7 +12,7 @@ const faqs = [
     answer: "For most primary care physicians, a referral is not required. However, many specialists (like cardiologists or neurologists) may require a referral from your general practitioner, depending on your insurance plan. Please confirm when booking.",
   },
   {
-    question: "What insurance plans does Fadhi Hospital accept?",
+    question: "What insurance plans does Hudson medical Centre accept?",
     answer: "We accept a wide range of national and international insurance providers. A full list can be viewed on our Billing page. We recommend calling our Billing Department at (254) 700 888 999 to verify your specific coverage before your visit.",
   },
   {

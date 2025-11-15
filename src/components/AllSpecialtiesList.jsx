@@ -67,7 +67,7 @@ const AllSpecialtiesList = ({ searchTerm }) => {
           Complete List of Our Expertise
         </h3>
         <p className="text-lg text-gray-600 mt-2">
-          Browse all departments available at Fadhi Hospital.
+          Browse all departments available at Hudson Medical Centre.
         </p>
       </motion.div>
 

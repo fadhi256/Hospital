@@ -8,7 +8,7 @@ import Counter from './Counter'; // Import our new Counter component
 
 const AboutBrief = () => {
  
-  const hospitalName = "Fadhi Hospital"; 
+  const hospitalName = "Hudson Medical Centre"; 
   const foundingYear = 2005; 
   const currentYear = new Date().getFullYear();
   const yearsOfOperation = currentYear - foundingYear;
