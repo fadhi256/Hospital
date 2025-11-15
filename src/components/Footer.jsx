@@ -39,11 +39,13 @@ const Footer = () => {
             {logo ? (
               <img 
                 src={logo} 
-                alt="Hudson Medical Centre Logo" 
-                className="h-12 w-auto mb-6"
+                alt="Hudson Medical Center" 
+                className="h-10 w-auto mb-4"
+                // If your logo is dark, you might need a light version for the footer
+                // Or add a style like: style={{ filter: 'brightness(0) invert(1)' }}
               />
             ) : (
-              <h2 className="text-3xl font-bold text-white mb-6">Hudson Medical Centre</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Hudson Medical Center</h2>
             )}
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
               Providing compassionate, patient-centered healthcare to our community for over 15 years. 
@@ -128,14 +130,21 @@ const Footer = () => {
 
           {/* Emergency Info */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-5">Emergency Services</h3>
-            <div className="bg-red-900/20 border border-red-800 rounded-lg p-4">
-              <p className="text-red-400 font-semibold mb-2">24/7 Emergency Care</p>
-              <p className="text-sm text-gray-300 mb-3">Immediate medical attention at all our branches</p>
-              <a href="tel:+256707234444" className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors inline-block">
-                Call Emergency
-              </a>
-            </div>
+            <h3 className="text-lg font-semibold text-white mb-5">Get in Touch</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <FaMapMarkerAlt className="w-5 h-5 text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                <span>123 Health St, Medical City, 12345</span>
+              </li>
+              <li className="flex items-start">
+                <FaPhoneAlt className="w-5 h-5 text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                <a href="tel:+256707234444" className="hover:text-emerald-500 transition-colors">+256 707 234 444</a>
+              </li>
+              <li className="flex items-start">
+                <FaEnvelope className="w-5 h-5 text-emerald-500 mt-1 mr-3 flex-shrink-0" />
+                <a href="mailto:info@hudsonmedicalcenter.com" className="hover:text-emerald-500 transition-colors">info@hudsonmedicalcenter.com</a>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -143,17 +152,10 @@ const Footer = () => {
 
       {/* Bottom Bar: Copyright & Socials */}
       <div className="bg-gray-800 py-6">
-        <div className="section-container flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Hudson Medical Centre. All rights reserved.
-            </p>
-            <div className="flex gap-4 text-sm text-gray-400">
-              <Link to="/privacy" className="hover:text-emerald-500 transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-emerald-500 transition-colors">Terms of Service</Link>
-            </div>
-          </div>
-          
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <p className="text-gray-400 text-sm">
+            &copy; {new Date().getFullYear()} Hudson Medical Center. All rights reserved.
+          </p>
           <div className="flex justify-center gap-5 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-emerald-500 transition-colors transform hover:scale-110">
               <FaFacebookF size={18} />

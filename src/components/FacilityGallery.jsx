@@ -39,7 +39,7 @@ const FacilityGallery = () => {
             Modern Facilities & Advanced Technology
           </h3>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            At Hudson Medical Centre, we believe that the environment is crucial for healing. 
+            At Hudson Medical Center, we believe that the environment is crucial for healing. 
             Our modern campus is designed for patient comfort and safety, equipped 
             with cutting-edge diagnostic and treatment technology.
           </p>
@@ -85,7 +85,7 @@ const FacilityGallery = () => {
             >
               <img 
                 src={src} 
-                alt={`Hudson medical centre ${index + 1}`} 
+                alt={`Hudson Medical Center Facility ${index + 1}`} 
                 className="w-full h-full object-cover" 
                 loading="lazy" 
                 decoding="async"
