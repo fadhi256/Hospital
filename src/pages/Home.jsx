@@ -8,6 +8,8 @@ import { WhyChooseUs } from '../components/WhyChooseUs.jsx'
 import { Specialties } from '../components/Specialties.jsx'
 import { WorkingHours } from '../components/WorkingHours.jsx'
 import { MeetOurDoctors } from '../components/MeetOurDoctors.jsx'
+import MedicalServices from '../components/medical_services.jsx';
+import SocialMedia from '../components/socialmedia.jsx';
 
 function App() {
   return (
@@ -15,11 +17,14 @@ function App() {
       <div className="absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500/20 to-pink-500/20 rounded-full blur-[80px] -z-10"></div>
       <div className="overflow-hidden">
         <Hero />
+        
          <AboutBrief />
          <FacilityVideo />
         <FounderMessage />
-        <ServicesHighlight />
+        {/* <ServicesHighlight /> */}
+        <MedicalServices />
         <Specialties />
+        <SocialMedia />
         <WhyChooseUs />
         <WorkingHours />
         <MeetOurDoctors />
