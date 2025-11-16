@@ -23,9 +23,9 @@ function App() {
         <FounderMessage />
         {/* <ServicesHighlight /> */}
         <MedicalServices />
-        <Specialties />
+        {/* <Specialties /> */}
         <SocialMedia />
-        <WhyChooseUs />
+        {/* <WhyChooseUs /> */}
         <WorkingHours />
         <MeetOurDoctors />
       </div>
