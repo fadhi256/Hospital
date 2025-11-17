@@ -130,7 +130,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-5">Emergency Services</h3>
             <div className="bg-red-900/20 border border-red-800 rounded-lg p-4">
-              <p className="text-red-400 font-semibold mb-2">24/7 Emergency Care</p>
+              <p className="text-red-400 font-semibold mb-2">24/7 Emergency Care management</p>
               <p className="text-sm text-gray-300 mb-3">Immediate medical attention at all our branches</p>
               <a href="tel:+256707234444" className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors inline-block">
                 Call Emergency
