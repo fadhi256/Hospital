@@ -4,10 +4,10 @@ import { MdEmail } from 'react-icons/md';
 import { IoWarning } from 'react-icons/io5';
 
 const contactDetails = {
-  phone: "+256741413007",
-  whatsapp: "+256741413007",
-  email: "info.med@hms.ug",
-  emergency: "+256741413007",
+  phone: "+256(0) 700000000",
+  whatsapp: "+256(0) 700000000",
+  email: "customercare@hudsonmedicalcenter.org",
+  emergency: "+256(0) 300099999",
 };
 
 const socialLinks = [

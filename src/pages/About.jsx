@@ -16,8 +16,7 @@ const About = () => {
     <div className="bg-white">
       {/* 1. Page Header */}
       <PageHeader 
-        title="About Hudson Medical Centre" 
-        subtitle="Committed to Excellence in Healthcare Since 2005" 
+        title="About Hudson Medical Center" 
         image={headerImage} 
       />
       <OurStoryMission />

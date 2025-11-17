@@ -27,7 +27,7 @@ const ServicesOverview = ({ onSearchChange }) => {
           Find the Right Specialty for You
         </h3>
         <p className="text-lg text-gray-600 mb-10">
-          Hudson Medical Centre offers a comprehensive range of medical services, from routine check-ups to advanced surgical procedures. Use the search bar below to quickly locate the department you need.
+          Hudson Medical Center offers a comprehensive range of medical services, from routine check-ups to advanced surgical procedures. Use the search bar below to quickly locate the department you need.
         </p>
       </div>
 
