@@ -15,7 +15,7 @@ const Contact = () => {
       
       {/* 1. Page Header */}
       <PageHeader 
-        title="Get in Touch with Fadhi Hospital" 
+        title="Get in Touch with Hudson Medical Center" 
         image={headerImage} 
       />
       <ContactFormInfo />
