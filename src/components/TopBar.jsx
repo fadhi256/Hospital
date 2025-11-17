@@ -12,10 +12,10 @@ const contactDetails = {
 
 const socialLinks = [
   { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaFacebookF },
-  { href: "#", icon: FaTwitter },
-  { href: "#", icon: FaYoutube },
-  { href: "#", icon: FaInstagram },
-  { href: "#", icon: FaLinkedinIn },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaTwitter },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaYoutube },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaInstagram },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaLinkedinIn },
 ];
 
 const TopBar = () => {
