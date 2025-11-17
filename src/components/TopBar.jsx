@@ -4,14 +4,14 @@ import { MdEmail } from 'react-icons/md';
 import { IoWarning } from 'react-icons/io5';
 
 const contactDetails = {
-  phone: "+256(0) 700000000",
-  whatsapp: "+256(0) 700000000",
-  email: "customercare@fadhihospital.org",
-  emergency: "+256(0) 300099999",
+  phone: "+256741413007",
+  whatsapp: "+256741413007",
+  email: "info.med@hms.ug",
+  emergency: "+256741413007",
 };
 
 const socialLinks = [
-  { href: "#", icon: FaFacebookF },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaFacebookF },
   { href: "#", icon: FaTwitter },
   { href: "#", icon: FaYoutube },
   { href: "#", icon: FaInstagram },

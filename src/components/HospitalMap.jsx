@@ -8,8 +8,8 @@ import { FaMapMarkerAlt, FaDirections } from 'react-icons/fa';
 // Placeholder image for the map area.
 // In a real application, this would be replaced by an actual map library component.
 const mapPlaceholderImage = "https://images.unsplash.com/photo-1596700877918-c2b621e264ee?q=80&w=2070&auto=format&fit=crop"; 
-const hospitalAddress = "123 Health Ave, City, Country";
-const mapLink = "https://www.google.com/maps/search/?api=1&query=Fadhi+Hospital+123+Health+Ave+City"; 
+const hospitalAddress = "Seeta Mukono, Uganda";
+const mapLink = "https://share.google/oegPuW20zSHBObAK4"; 
 
 const HospitalMap = () => {
   return (

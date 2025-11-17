@@ -37,7 +37,7 @@ const FacilityVideo = () => {
           variants={fadeIn('up', 0.8)}
           className="relative w-full max-w-5xl mx-auto shadow-2xl rounded-xl overflow-hidden"
           // This padding technique maintains a 16:9 aspect ratio for the video
-          style={{ paddingTop: '56.25%' }} 
+          style={{ paddingTop: '36.25%' }} 
         >
           <iframe
             className="absolute top-0 left-0 w-full h-full"

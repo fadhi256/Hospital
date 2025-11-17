@@ -21,8 +21,8 @@ const ContactFormInfo = () => {
   };
 
   const contactDetails = [
-    { icon: FaLocationDot, title: 'Main Campus', info: '123 Health Ave, City, Country' },
-    { icon: FaPhone, title: 'Appointments', info: '+254 700 123 456' },
+    { icon: FaLocationDot, title: 'Main Branch', info: ' Mukono Seeta, Mukono,Uganda' },
+    { icon: FaPhone, title: 'Appointments', info: '+256 0741413007' },
     { icon: FaEnvelope, title: 'General Inquiry', info: 'info@hudsonmedicalcentre.com' },
     { icon: FaClock, title: 'Hours', info: '24/7 Emergency, 9AM-5PM Clinic' },
   ];
