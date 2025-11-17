@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Care at Hudson " },
   { href: "/contact", label: "Reach Out" },
+  { href: " ", label: "Patient Portal" },
 ];
 
 // Assuming TopBar height is h-12 (48px)
@@ -114,7 +115,7 @@ const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-emerald-600 text-white px-8 py-3 rounded-full hover:bg-emerald-700 text-base font-semibold transition-all shadow-md hover:shadow-lg"
                 >
-                  Book Appointment
+                  Quick Appointment
                 </motion.button>
               </button>
             </motion.div>
@@ -169,7 +170,7 @@ const Navbar = () => {
                 <motion.button 
                   className="w-full bg-emerald-600 text-white px-6 py-3 rounded-full hover:bg-emerald-700 text-sm font-medium transition-all shadow-md"
                 >
-                  Book Appointment
+                  Quick Appointment
                 </motion.button>
               </button>
             </div>

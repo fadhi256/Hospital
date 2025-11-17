@@ -11,7 +11,7 @@ const contactDetails = {
 };
 
 const socialLinks = [
-  { href: "#", icon: FaFacebookF },
+  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaFacebookF },
   { href: "#", icon: FaTwitter },
   { href: "#", icon: FaYoutube },
   { href: "#", icon: FaInstagram },

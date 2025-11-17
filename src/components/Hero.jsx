@@ -10,19 +10,19 @@ import AnimatedText from './AnimatedText'
 const slideData = [
   {
     id: 1,
-    image: assets.Compasionate,
+    image: assets.img9,
     title: "Compassionate Care, Every Single Day",
     subtitle: "Experience world-class healthcare from a team that truly cares about your well-being.",
   },
   {
     id: 2,
-    image: assets.Equipment,
+    image: assets.imgx,
     title: "Advanced Medical Technology",
     subtitle: "We use state-of-the-art technology to provide accurate diagnoses and effective treatments.",
   },
   {
     id: 3,
-    image: assets.Trusted,
+    image: assets.img7,
     title: "Your Trusted Health Partner for Life",
     subtitle: "From preventative care to complex surgeries, we are here for you and your family.",
   },
@@ -123,7 +123,7 @@ const Hero = () => {
                     whileTap={{ scale: 0.95 }}
                     className="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition-colors shadow-lg"
                 >
-                    Book an Appointment
+                    Quick Appointment
                 </motion.button>
             </motion.div>
         </AnimatePresence>

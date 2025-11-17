@@ -4,13 +4,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeIn } from '../utils/motion';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
+import { assets } from '../assets/assets.js'
 
 // Placeholder images for the gallery 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1599818816827-046fa493f0b2?q=80&w=1932&auto=format&fit=crop", // Patient room
-  "https://images.unsplash.com/photo-1551076800-ec529977017e?q=80&w=1964&auto=format&fit=crop", // Operating room
-  "https://images.unsplash.com/photo-1559223700-d86f9175d794?q=80&w=1928&auto=format&fit=crop", // Lab equipment
-  "https://images.unsplash.com/photo-1579737402801-6b07c89422a0?q=80&w=2070&auto=format&fit=crop", // MRI or scanner room
+  assets.imgx,
+  assets.xray,
+  assets.img9,
+  // assets.img10,
+  assets.img6,
+  assets.cbc,
+  
+  // assets.img12, 
 ];
 
 const stats = [

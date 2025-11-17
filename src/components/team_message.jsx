@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { assets } from '../assets/assets.js'
 
 const MedicalTeam = () => {
   const teamStats = [
@@ -41,7 +42,7 @@ const MedicalTeam = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={assets.imgx}
                 alt="Our Medical Team"
                 className="w-full h-96 object-cover"
               />
