@@ -14,8 +14,8 @@ const socialLinks = [
   { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaFacebookF },
   { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaTwitter },
   { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaYoutube },
-  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaInstagram },
-  { href: "https://www.facebook.com/share/1A5CpcuGkU/?mibextid=wwXIfr", icon: FaLinkedinIn },
+  { href: "", icon: FaInstagram },
+  { href: "", icon: FaLinkedinIn },
 ];
 
 const TopBar = () => {
